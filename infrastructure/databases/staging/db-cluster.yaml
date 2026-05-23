@@ -11,5 +11,3 @@ spec:
     initdb:
       database: bookmarks
       owner: app
-      secret:
-        name: bookmarks-staging-db-app

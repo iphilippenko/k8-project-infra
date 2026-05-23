@@ -21,8 +21,6 @@ spec:
     initdb:
       database: bookmarks
       owner: app
-      secret:
-        name: bookmarks-prod-db-app
 
   postgresql:
     parameters:
