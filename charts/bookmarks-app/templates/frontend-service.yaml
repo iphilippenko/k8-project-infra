@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "bookmarks-app.frontendFullname" . }}
+  labels:
+    {{- include "bookmarks-app.frontendLabels" . | nindent 4 }}
+spec:
+  type: {{ .Values.frontend.service.type }}
+  ports:
+    - port: {{ .Values.frontend.service.port }}
+      targetPort: {{ .Values.frontend.service.targetName }}
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "bookmarks-app.frontendSelectorLabels" . | nindent 4 }}

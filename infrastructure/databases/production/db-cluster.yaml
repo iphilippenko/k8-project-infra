@@ -1,0 +1,34 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: bookmarks-prod-db
+  namespace: production
+spec:
+  instances: 3
+
+  storage:
+    size: 10Gi
+
+  resources:
+    requests:
+      cpu: 250m
+      memory: 512Mi
+    limits:
+      cpu: "1"
+      memory: 1Gi
+
+  bootstrap:
+    initdb:
+      database: bookmarks
+      owner: app
+      secret:
+        name: bookmarks-prod-db-app
+
+  postgresql:
+    parameters:
+      max_connections: "200"
+      shared_buffers: "256MB"
+      effective_cache_size: "768MB"
+
+  monitoring:
+    enablePodMonitor: true

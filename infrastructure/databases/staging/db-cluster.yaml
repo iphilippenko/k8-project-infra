@@ -1,0 +1,15 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: bookmarks-staging-db
+  namespace: staging
+spec:
+  instances: 1
+  storage:
+    size: 1Gi
+  bootstrap:
+    initdb:
+      database: bookmarks
+      owner: app
+      secret:
+        name: bookmarks-staging-db-app

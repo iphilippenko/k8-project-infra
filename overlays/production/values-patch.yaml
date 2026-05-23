@@ -1,0 +1,48 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: bookmarks-app
+spec:
+  targetNamespace: production
+  values:
+    frontend:
+      replicas: 2
+      resources:
+        requests:
+          cpu: 100m
+          memory: 128Mi
+        limits:
+          cpu: 500m
+          memory: 256Mi
+      ingress:
+        hosts:
+          - host: app.prod.local
+            paths:
+              - path: /
+                pathType: ImplementationSpecific
+      env:
+        VITE_API_BASE_URL: "https://api.prod.local"
+    backend:
+      replicas: 2
+      image:
+        tag: "1.0.0"
+      resources:
+        requests:
+          cpu: 250m
+          memory: 256Mi
+        limits:
+          cpu: 1000m
+          memory: 512Mi
+      database:
+        secretName: bookmarks-prod-db-app
+        secretKey: uri
+      autoscaling:
+        enabled: true
+        minReplicas: 2
+        maxReplicas: 5
+      ingress:
+        hosts:
+          - host: api.prod.local
+            paths:
+              - path: /
+                pathType: ImplementationSpecific
