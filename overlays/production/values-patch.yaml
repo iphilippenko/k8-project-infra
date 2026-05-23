@@ -21,7 +21,7 @@ spec:
               - path: /
                 pathType: ImplementationSpecific
       env:
-        VITE_API_BASE_URL: "https://api.prod.local"
+        VITE_API_BASE_URL: "http://api.prod.local"
     backend:
       replicas: 2
       image:

@@ -14,7 +14,7 @@ spec:
               - path: /
                 pathType: ImplementationSpecific
       env:
-        VITE_API_BASE_URL: "https://api.staging.local"
+        VITE_API_BASE_URL: "http://api.staging.local"
     backend:
       replicas: 1
       image:

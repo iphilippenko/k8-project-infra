@@ -45,7 +45,7 @@ frontend:
             pathType: ImplementationSpecific
     tls: [ ]
   env:
-    VITE_API_BASE_URL: "https://api.bookmarks.local"
+    VITE_API_BASE_URL: "http://api.bookmarks.local"
 
 backend:
   containerName: backend
