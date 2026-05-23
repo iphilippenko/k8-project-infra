@@ -1,14 +1,11 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: prod-db
+  name: namespaces
   namespace: flux-system
 spec:
-  dependsOn:
-    - name: namespaces
-    - name: cnpg-operator
   interval: 10m
-  path: ./infrastructure/databases/production
+  path: ./infrastructure/namespaces
   prune: true
   wait: true
   sourceRef:

@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
   - flux-system
+  - namespaces-flux-kustomization.yaml
   - cnpg-flux-kustomization.yaml
   - ingress-nginx-flux-kustomization.yaml
   - production/db.yaml
