@@ -5,6 +5,8 @@ metadata:
 spec:
   interval: 10m
   releaseName: bookmarks-app
+  driftDetection:
+    mode: enabled
 
   chart:
     spec:
