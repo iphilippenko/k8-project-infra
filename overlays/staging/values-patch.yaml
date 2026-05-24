@@ -18,7 +18,7 @@ spec:
     backend:
       replicas: 1
       image:
-        tag: "2.0.0"
+        tag: "sha-20b0091"
       database:
         secretName: bookmarks-staging-db-app
         secretKey: uri
