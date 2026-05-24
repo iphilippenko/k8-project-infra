@@ -1,15 +1,13 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: staging-app
+  name: staging-db-migration
   namespace: flux-system
 spec:
   dependsOn:
-    - name: namespaces
-    - name: ingress-nginx
-    - name: staging-db-migration
+    - name: staging-db
   interval: 10m
-  path: ./overlays/staging
+  path: ./infrastructure/migrations/staging
   prune: true
   wait: true
   sourceRef:

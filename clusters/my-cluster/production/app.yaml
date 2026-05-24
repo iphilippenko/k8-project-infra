@@ -7,7 +7,7 @@ spec:
   dependsOn:
     - name: namespaces
     - name: ingress-nginx
-    - name: prod-db
+    - name: prod-db-migration
   interval: 10m
   path: ./overlays/production
   prune: true

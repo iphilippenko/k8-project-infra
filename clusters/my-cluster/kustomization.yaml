@@ -7,6 +7,8 @@ resources:
   - cnpg-flux-kustomization.yaml
   - ingress-nginx-flux-kustomization.yaml
   - production/db.yaml
+  - production/db-migration.yaml
   - production/app.yaml
   - staging/db.yaml
+  - staging/db-migration.yaml
   - staging/app.yaml
